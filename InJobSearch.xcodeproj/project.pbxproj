@@ -15,6 +15,7 @@
 		D5B143221BB68E2100374679 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5B143201BB68E2100374679 /* LaunchScreen.xib */; };
 		D5B1432E1BB68E2100374679 /* InJobSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B1432D1BB68E2100374679 /* InJobSearchTests.swift */; };
 		D5CD83B91BB691E30021C0E1 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CD83B81BB691E30021C0E1 /* Job.swift */; };
+		D5CD83BC1BB692D10021C0E1 /* SearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CD83BB1BB692D10021C0E1 /* SearchCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		D5B1432C1BB68E2100374679 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5B1432D1BB68E2100374679 /* InJobSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InJobSearchTests.swift; sourceTree = "<group>"; };
 		D5CD83B81BB691E30021C0E1 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		D5CD83BB1BB692D10021C0E1 /* SearchCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCategory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +87,7 @@
 				D5B143171BB68E1E00374679 /* MasterViewController.swift */,
 				D5B143191BB68E1E00374679 /* DetailViewController.swift */,
 				D5B1431B1BB68E2000374679 /* Main.storyboard */,
-				D5CD83B81BB691E30021C0E1 /* Job.swift */,
+				D5CD83BA1BB692B40021C0E1 /* Model */,
 				D5B1431E1BB68E2100374679 /* Images.xcassets */,
 				D5B143201BB68E2100374679 /* LaunchScreen.xib */,
 				D5B143131BB68E1E00374679 /* Supporting Files */,
@@ -116,6 +118,15 @@
 				D5B1432C1BB68E2100374679 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D5CD83BA1BB692B40021C0E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D5CD83B81BB691E30021C0E1 /* Job.swift */,
+				D5CD83BB1BB692D10021C0E1 /* SearchCategory.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +232,7 @@
 				D5B1431A1BB68E1E00374679 /* DetailViewController.swift in Sources */,
 				D5B143181BB68E1E00374679 /* MasterViewController.swift in Sources */,
 				D5B143161BB68E1E00374679 /* AppDelegate.swift in Sources */,
+				D5CD83BC1BB692D10021C0E1 /* SearchCategory.swift in Sources */,
 				D5CD83B91BB691E30021C0E1 /* Job.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
