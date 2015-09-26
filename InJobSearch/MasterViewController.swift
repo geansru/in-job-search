@@ -95,3 +95,20 @@ class MasterViewController: UITableViewController {
 
 }
 
+extension MasterViewController: DownloaderDelegate {
+    func downloadWillStart(downloader: Downloader) {
+        println(__FUNCTION__)
+    }
+    func downloadDidStart(downloader: Downloader) {
+        println(__FUNCTION__)
+    }
+    func downloadDidReceiveError(downloader: Downloader, error: NSError) {
+        println(__FUNCTION__)
+    }
+    func downloadWillFinish(downloader: Downloader, response: NSHTTPURLResponse) {
+        println(__FUNCTION__)
+    }
+    func downloadDidFinish(downloader: Downloader, result: [AnyObject]!) {
+        println(__FUNCTION__)
+    }
+}

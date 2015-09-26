@@ -18,6 +18,7 @@
 		D5CD83BC1BB692D10021C0E1 /* SearchCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CD83BB1BB692D10021C0E1 /* SearchCategory.swift */; };
 		D5CD83BE1BB6935F0021C0E1 /* SourseOfSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CD83BD1BB6935F0021C0E1 /* SourseOfSearch.swift */; };
 		D5CD83C01BB693D10021C0E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CD83BF1BB693D10021C0E1 /* Log.swift */; };
+		D5CD83C31BB6A4A30021C0E1 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CD83C21BB6A4A30021C0E1 /* Downloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		D5CD83BB1BB692D10021C0E1 /* SearchCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCategory.swift; sourceTree = "<group>"; };
 		D5CD83BD1BB6935F0021C0E1 /* SourseOfSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourseOfSearch.swift; sourceTree = "<group>"; };
 		D5CD83BF1BB693D10021C0E1 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		D5CD83C21BB6A4A30021C0E1 /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				D5CD83BF1BB693D10021C0E1 /* Log.swift */,
+				D5CD83C21BB6A4A30021C0E1 /* Downloader.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			files = (
 				D5B1431A1BB68E1E00374679 /* DetailViewController.swift in Sources */,
 				D5CD83C01BB693D10021C0E1 /* Log.swift in Sources */,
+				D5CD83C31BB6A4A30021C0E1 /* Downloader.swift in Sources */,
 				D5CD83BE1BB6935F0021C0E1 /* SourseOfSearch.swift in Sources */,
 				D5B143181BB68E1E00374679 /* MasterViewController.swift in Sources */,
 				D5B143161BB68E1E00374679 /* AppDelegate.swift in Sources */,
