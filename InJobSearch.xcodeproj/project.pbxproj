@@ -19,6 +19,8 @@
 		D5CD83BE1BB6935F0021C0E1 /* SourseOfSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CD83BD1BB6935F0021C0E1 /* SourseOfSearch.swift */; };
 		D5CD83C01BB693D10021C0E1 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CD83BF1BB693D10021C0E1 /* Log.swift */; };
 		D5CD83C31BB6A4A30021C0E1 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CD83C21BB6A4A30021C0E1 /* Downloader.swift */; };
+		D5CD83C51BB6AAD60021C0E1 /* SearchEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CD83C41BB6AAD60021C0E1 /* SearchEntity.swift */; };
+		D5CD83C71BB6AB170021C0E1 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CD83C61BB6AB170021C0E1 /* Parser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		D5CD83BD1BB6935F0021C0E1 /* SourseOfSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourseOfSearch.swift; sourceTree = "<group>"; };
 		D5CD83BF1BB693D10021C0E1 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		D5CD83C21BB6A4A30021C0E1 /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
+		D5CD83C41BB6AAD60021C0E1 /* SearchEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEntity.swift; sourceTree = "<group>"; };
+		D5CD83C61BB6AB170021C0E1 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 				D5CD83B81BB691E30021C0E1 /* Job.swift */,
 				D5CD83BB1BB692D10021C0E1 /* SearchCategory.swift */,
 				D5CD83BD1BB6935F0021C0E1 /* SourseOfSearch.swift */,
+				D5CD83C41BB6AAD60021C0E1 /* SearchEntity.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 		D5CD83C11BB693DB0021C0E1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D5CD83C61BB6AB170021C0E1 /* Parser.swift */,
 				D5CD83BF1BB693D10021C0E1 /* Log.swift */,
 				D5CD83C21BB6A4A30021C0E1 /* Downloader.swift */,
 			);
@@ -248,8 +254,10 @@
 			files = (
 				D5B1431A1BB68E1E00374679 /* DetailViewController.swift in Sources */,
 				D5CD83C01BB693D10021C0E1 /* Log.swift in Sources */,
+				D5CD83C71BB6AB170021C0E1 /* Parser.swift in Sources */,
 				D5CD83C31BB6A4A30021C0E1 /* Downloader.swift in Sources */,
 				D5CD83BE1BB6935F0021C0E1 /* SourseOfSearch.swift in Sources */,
+				D5CD83C51BB6AAD60021C0E1 /* SearchEntity.swift in Sources */,
 				D5B143181BB68E1E00374679 /* MasterViewController.swift in Sources */,
 				D5B143161BB68E1E00374679 /* AppDelegate.swift in Sources */,
 				D5CD83BC1BB692D10021C0E1 /* SearchCategory.swift in Sources */,
