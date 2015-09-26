@@ -43,19 +43,18 @@ class Downloader {
             object.dataTask?.cancel()
             object.dataTask = session.dataTaskWithURL(url, completionHandler: {
                 (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
-                self.delegate.downloadWillFinish(self, response: (response as? NSHTTPURLResponse)!)
+                dispatch_async(dispatch_get_main_queue()) { self.delegate.downloadWillFinish(self, response: (response as? NSHTTPURLResponse)!) }
                 if let error = error { self.delegate.downloadDidReceiveError(self, error: error) }
                 if let data = data {
-                    self.delegate.downloadDidFinish(self, result: [data])
+                    dispatch_async(dispatch_get_main_queue()) { self.delegate.downloadDidFinish(self, result: [data]) }
                 } else {
                     let mess: String = "NSData object recieving in closure dataTaskWithURL: is nil"
                     Log.m(mess)
                     let info: [NSObject : AnyObject] = ["Explanation": mess, "Function": __FUNCTION__]
                     let error: NSError = NSError(domain: "Downloading error", code: 1, userInfo: info)
-                    self.delegate.downloadDidReceiveError(self, error: error)
+                    dispatch_async(dispatch_get_main_queue()) { self.delegate.downloadDidReceiveError(self, error: error) }
                 }
-                
-                self.delegate.downloadDidFinish(self, result: nil)
+                dispatch_async(dispatch_get_main_queue()) { self.delegate.downloadDidFinish(self, result: nil) }
                 
             })
             
