@@ -32,7 +32,14 @@ class BookmarksViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
         
         let object = searchCategories[indexPath.section]
-        cell.textLabel!.text = object.subcategories[indexPath.row].title
+        cell.textLabel!.text = object.subcategories[indexPath.row].pathComponent
+        
+        if searchCategories[indexPath.section].subcategories[indexPath.row].selected {
+            cell.accessoryType = .Checkmark
+        } else {
+            cell.accessoryType = .None
+        }
+        
         return cell
     }
     

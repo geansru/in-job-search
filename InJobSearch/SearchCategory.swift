@@ -41,23 +41,30 @@ class CategoryBase: CategoryInterface {
     }
     
     func safety(title: String) ->  String {
-        let split_result = title.componentsSeparatedByString(" ")
-        var result = "+".join(split_result)
-        
-        if let aux = result.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding) {
-            result = aux
-        }
+        var result = replaceCharacter(title, from: " ", to: "+")
+        result = replaceCharacter(result, from: ",", to: "%2C")
+        result = replaceCharacter(result, from: "&", to: "%26")
         
         return result
     }
     
     func clear(title: String) ->  String {
         // example: Web%2C+Mobile+%26+Software+Dev -> Web, Mobile & Software Dev
-        var result = title.stringByReplacingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-        if let split_result = result?.componentsSeparatedByString("+") {
-            result = " ".join(split_result)
-        }
-        return result!
+        var result = replaceCharacter(title, from: "+", to: " ")
+        result = replaceCharacter(result, from: "%2C", to: ",")
+        result = replaceCharacter(result, from: "%26", to: "&")
+//        let split_result1 = title.componentsSeparatedByString("+")
+//        result = " ".join(split_result1)
+//        let split_result2 = title.componentsSeparatedByString("%2C")
+//        result = ",".join(split_result2)
+        
+        return result
     }
     
+    func replaceCharacter(sourse: String, from: String, to: String) -> String {
+        var result = sourse
+        let split_result = result.componentsSeparatedByString(from)
+        result = to.join(split_result)
+        return result
+    }
 }

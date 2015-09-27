@@ -27,7 +27,7 @@ class Seed
                 result.append(category)
             }
         }
-        println("Imported \(result.count) teams")
+        println("Imported \(result.count) categories")
         return result
     }
 

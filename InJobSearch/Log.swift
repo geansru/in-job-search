@@ -8,7 +8,7 @@
 
 import Foundation
 
-let debugLevel: LogLevel = .NONE
+let debugLevel: LogLevel = LogLevel.ALL
 
 class Log {
     

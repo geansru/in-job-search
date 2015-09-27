@@ -47,6 +47,7 @@ class Downloader {
                 if let error = error { self.delegate.downloadDidReceiveError(self, error: error) }
                 if let data = data {
                     dispatch_async(dispatch_get_main_queue()) { self.delegate.downloadDidFinish(self, result: [data]) }
+                    return
                 } else {
                     let mess: String = "NSData object recieving in closure dataTaskWithURL: is nil"
                     Log.m(mess)

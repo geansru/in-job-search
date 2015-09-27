@@ -15,6 +15,9 @@ class MasterViewController: UITableViewController {
         return Seed.importJSONSeedData()
     }()
 
+    var jobs = [Job]()
+    var entity: SearchEntity!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
@@ -25,6 +28,8 @@ class MasterViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        entity = SearchEntity(sourse: SourseOfSearch.UpWork(categories: searchCategories))
+        let downloader = Downloader(object: entity, delegate: self)
         // Do any additional setup after loading the view, typically from a nib.
 //        self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
@@ -91,6 +96,25 @@ class MasterViewController: UITableViewController {
 
 }
 
+extension MasterViewController: ParserDelegate {
+    func parseWillStart(parse: Parser) {
+        println(__FUNCTION__)
+    }
+    func parseDidStart(parse: Parser){
+        println(__FUNCTION__)
+    }
+    func parseDidReceiveError(parse: Parser, errorString: String){
+        println(__FUNCTION__)
+    }
+    func parseWillFinish(parse: Parser){
+        println(__FUNCTION__)
+    }
+    func parseDidFinish(parse: Parser, result: [AnyObject]!){
+        println(__FUNCTION__)
+    }
+
+}
+
 extension MasterViewController: DownloaderDelegate {
     func downloadWillStart(downloader: Downloader) {
         println(__FUNCTION__)
@@ -106,5 +130,11 @@ extension MasterViewController: DownloaderDelegate {
     }
     func downloadDidFinish(downloader: Downloader, result: [AnyObject]!) {
         println(__FUNCTION__)
+        if let aux = result as? [NSData] {
+            if let data = aux.first {
+                entity.data = data
+                let parser = Parser(object: entity, delegate: self)
+            }
+        }
     }
 }
