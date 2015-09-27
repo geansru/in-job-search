@@ -25,6 +25,16 @@ class SearchCategory: CategoryBase {
             subcategories.append(subCategory)
         }
     }
+    
+    init(title: String, subcategory: SearchSubCategory) {
+        super.init(title: title)
+        self.subcategories = [subcategory]
+    }
+    
+    init(category: SearchCategory) {
+        subcategories = category.subcategories
+        super.init(title: category.title)
+    }
 }
 
 class CategoryBase: CategoryInterface {

@@ -10,14 +10,15 @@ import UIKit
 
 class MasterViewController: UITableViewController {
 
+    
+    // MARK: - Properties
     var detailViewController: DetailViewController? = nil
-    lazy var searchCategories: [SearchCategory] = {
-        return Seed.importJSONSeedData()
-    }()
+    var searchCategories = [SearchCategory]()
 
     var jobs = [Job]()
     var entity: SearchEntity!
-    
+
+    // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
@@ -28,8 +29,7 @@ class MasterViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        entity = SearchEntity(sourse: SourseOfSearch.UpWork(categories: searchCategories))
-        let downloader = Downloader(object: entity, delegate: self)
+        refresh()
         // Do any additional setup after loading the view, typically from a nib.
 //        self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
@@ -41,18 +41,11 @@ class MasterViewController: UITableViewController {
         }
     }
 
-//    func insertNewObject(sender: AnyObject) {
-//        objects.insert(NSDate(), atIndex: 0)
-//        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-//        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-//    }
-
     // MARK: - Segues
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let object = searchCategories[indexPath.section]
+                let object = jobs[indexPath.row]
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -64,17 +57,17 @@ class MasterViewController: UITableViewController {
     // MARK: - Table View
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return searchCategories.count ?? 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchCategories[section].subcategories.count ?? 0
+        return jobs.count ?? 0
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
 
-        let object = searchCategories[indexPath.section]
+        let object = jobs[indexPath.row]
         cell.textLabel!.text = object.title
         return cell
     }
@@ -96,40 +89,58 @@ class MasterViewController: UITableViewController {
 
 }
 
+extension MasterViewController {
+    // MARK: - helper
+    func refresh() {
+        if searchCategories.isEmpty { return }
+        entity = SearchEntity(sourse: SourseOfSearch.UpWork(categories: searchCategories))
+        let downloader = Downloader(object: entity, delegate: self)
+    }
+}
+
+
 extension MasterViewController: ParserDelegate {
     func parseWillStart(parse: Parser) {
-        println(__FUNCTION__)
+        Log.m(__FUNCTION__)
     }
     func parseDidStart(parse: Parser){
-        println(__FUNCTION__)
+        Log.m(__FUNCTION__)
     }
     func parseDidReceiveError(parse: Parser, errorString: String){
-        println(__FUNCTION__)
+        Log.m(__FUNCTION__)
     }
     func parseWillFinish(parse: Parser){
-        println(__FUNCTION__)
+        Log.m(__FUNCTION__)
     }
     func parseDidFinish(parse: Parser, result: [AnyObject]!){
-        println(__FUNCTION__)
+        Log.m(__FUNCTION__)
+        if let aux = result as? [Job] {
+            Log.m("result is type of [Job]")
+            jobs = aux
+            tableView.reloadData()
+        }
     }
 
 }
 
 extension MasterViewController: DownloaderDelegate {
     func downloadWillStart(downloader: Downloader) {
-        println(__FUNCTION__)
+        Log.m(__FUNCTION__)
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     }
     func downloadDidStart(downloader: Downloader) {
-        println(__FUNCTION__)
+        Log.m(__FUNCTION__)
     }
     func downloadDidReceiveError(downloader: Downloader, error: NSError) {
-        println(__FUNCTION__)
+        Log.m(__FUNCTION__)
+        Log.e(error)
     }
     func downloadWillFinish(downloader: Downloader, response: NSHTTPURLResponse) {
-        println(__FUNCTION__)
+        Log.m(__FUNCTION__)
     }
     func downloadDidFinish(downloader: Downloader, result: [AnyObject]!) {
-        println(__FUNCTION__)
+        Log.m(__FUNCTION__)
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         if let aux = result as? [NSData] {
             if let data = aux.first {
                 entity.data = data

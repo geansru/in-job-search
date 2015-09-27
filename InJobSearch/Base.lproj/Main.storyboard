@@ -31,25 +31,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
-                                <rect key="frame" x="20" y="292" width="560" height="17"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tr3-na-8T1">
+                                <rect key="frame" x="16" y="72" width="568" height="20.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="pubDate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcc-1M-klq">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hma-08-wH6">
+                                <rect key="frame" x="16" y="100.5" width="568" height="491.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="RfZ-fy-Emw"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="RfZ-fy-Emw"/>
+                                    </mask>
+                                </variation>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0XM-y9-sOw" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" constant="20" symbolic="YES" id="Tsc-yG-G1q"/>
-                            <constraint firstItem="0XM-y9-sOw" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="jWN-iV-94e"/>
-                            <constraint firstAttribute="trailing" secondItem="0XM-y9-sOw" secondAttribute="trailing" constant="20" symbolic="YES" id="tHV-ZD-HQj"/>
+                            <constraint firstAttribute="trailing" secondItem="tr3-na-8T1" secondAttribute="trailing" constant="16" id="33O-zG-LuL"/>
+                            <constraint firstItem="tr3-na-8T1" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" constant="16" id="3eA-x8-iuS"/>
+                            <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="hma-08-wH6" secondAttribute="bottom" constant="8" id="J5K-Cl-wgl"/>
+                            <constraint firstItem="hma-08-wH6" firstAttribute="top" secondItem="tr3-na-8T1" secondAttribute="bottom" constant="8" id="KRQ-SD-gsf"/>
+                            <constraint firstItem="hma-08-wH6" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" constant="16" id="LlT-u0-WOL"/>
+                            <constraint firstItem="tr3-na-8T1" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="8" id="O7v-d5-08M"/>
+                            <constraint firstAttribute="trailing" secondItem="hma-08-wH6" secondAttribute="trailing" constant="16" id="eRw-QB-jkT"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Jobs" id="mOI-FS-AaM"/>
+                    <navigationItem key="navigationItem" title="Job" id="mOI-FS-AaM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="8aM-N0-Z2l">
+                            <connections>
+                                <action selector="goToSafari:" destination="JEX-9P-axG" id="Uxy-8n-bDg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="detailDescriptionLabel" destination="0XM-y9-sOw" id="deQ-Na-JPF"/>
+                        <outlet property="detailDescriptionLabel" destination="tr3-na-8T1" id="AWw-6a-twZ"/>
+                        <outlet property="webView" destination="hma-08-wH6" id="JD8-ZH-6gg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
@@ -129,14 +157,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="cell" textLabel="BzW-EN-Xws" style="IBUITableViewCellStyleDefault" id="Og7-MT-bws">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="cell" textLabel="BzW-EN-Xws" detailTextLabel="3YX-Ge-bfH" rowHeight="64" style="IBUITableViewCellStyleSubtitle" id="Og7-MT-bws">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Og7-MT-bws" id="VoJ-yr-LeM">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BzW-EN-Xws">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Category:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BzW-EN-Xws">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="SubCategory:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3YX-Ge-bfH">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -150,8 +184,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Bookmarks" id="E0P-JO-M2r">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OzN-Fa-Jek"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="lqW-2f-8UW"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OzN-Fa-Jek">
+                            <connections>
+                                <action selector="cancel" destination="f1y-gO-MKd" id="Pz9-vJ-kFX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="lqW-2f-8UW">
+                            <connections>
+                                <action selector="done" destination="f1y-gO-MKd" id="uro-YA-7t5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZ6-EQ-gIa" userLabel="First Responder" sceneMemberID="firstResponder"/>

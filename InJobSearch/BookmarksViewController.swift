@@ -8,17 +8,44 @@
 
 import UIKit
 
+protocol BookmarksViewControllerDelegate {
+    func bookmarksViewControllerDidFinish(controller: BookmarksViewController, searchCategories: [SearchCategory])
+    func bookmarksViewControllerDidCancel(controller: BookmarksViewController)
+}
+
 class BookmarksViewController: UITableViewController {
+    
+    // MARK: - IBAction
+    @IBAction func done() {
+        refreshSelectedBookmarksList()
+        delegate?.bookmarksViewControllerDidFinish(self, searchCategories: searchCategories)
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func cancel() {
+        delegate?.bookmarksViewControllerDidCancel(self)
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    // MARK: - Properties
+    var delegate: BookmarksViewControllerDelegate!
     
     lazy var searchCategories: [SearchCategory] = {
         return Seed.importJSONSeedData()
         }()
     
+    var selectedSearchCategories: [SearchCategory] = [SearchCategory] ()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshSelectedBookmarksList()
+        tableView.rowHeight = 64
     }
     
     // MARK: - Table View
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return searchCategories[section].title
+    }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return searchCategories.count ?? 0
@@ -32,7 +59,8 @@ class BookmarksViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
         
         let object = searchCategories[indexPath.section]
-        cell.textLabel!.text = object.subcategories[indexPath.row].pathComponent
+        cell.textLabel!.text = object.subcategories[indexPath.row].title
+        cell.detailTextLabel?.text = "Category: " + object.title
         
         if searchCategories[indexPath.section].subcategories[indexPath.row].selected {
             cell.accessoryType = .Checkmark
@@ -56,7 +84,22 @@ class BookmarksViewController: UITableViewController {
         } else {
             tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
         }
+        refreshSelectedBookmarksList()
     }
     
     
+}
+
+extension BookmarksViewController {
+    // MARK: - Helpers
+    func refreshSelectedBookmarksList() {
+        for cat in searchCategories {
+            for sub in cat.subcategories {
+                if sub.selected {
+                    let selected = SearchCategory(title: cat.title, subcategory: sub)
+                    selectedSearchCategories.append( selected )
+                }
+            }
+        }
+    }
 }

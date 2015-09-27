@@ -11,9 +11,13 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
+    @IBOutlet weak var webView: UIWebView!
 
+    @IBAction func goToSafari(sender: UIBarButtonItem) {
+        
+    }
 
-    var detailItem: AnyObject? {
+    var detailItem: Job? {
         didSet {
             // Update the view.
             self.configureView()
@@ -22,9 +26,17 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail: AnyObject = self.detailItem {
+        if let detail: Job = self.detailItem {
             if let label = self.detailDescriptionLabel {
-                label.text = detail.description
+                label.text = detail.title
+            }
+            
+            if let web = webView {
+                webView.loadHTMLString(detail.content, baseURL: nil)
+            }
+            
+            if isViewLoaded() {
+                title = detail.pubDate
             }
         }
     }
