@@ -10,5 +10,5 @@ import Foundation
 
 
 class SearchSubCategory: CategoryBase {
-    
+    var selected = false
 }

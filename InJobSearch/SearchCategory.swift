@@ -36,9 +36,28 @@ class CategoryBase: CategoryInterface {
     }
     
     func initialize(title: String) {
-        let clear = title.stringByReplacingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-        let safety = title.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-        self.title = clear ?? title
-        self.pathComponent = safety ?? title
+        self.title = clear(title)
+        self.pathComponent = safety(title)
     }
+    
+    func safety(title: String) ->  String {
+        let split_result = title.componentsSeparatedByString(" ")
+        var result = "+".join(split_result)
+        
+        if let aux = result.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding) {
+            result = aux
+        }
+        
+        return result
+    }
+    
+    func clear(title: String) ->  String {
+        // example: Web%2C+Mobile+%26+Software+Dev -> Web, Mobile & Software Dev
+        var result = title.stringByReplacingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+        if let split_result = result?.componentsSeparatedByString("+") {
+            result = " ".join(split_result)
+        }
+        return result!
+    }
+    
 }

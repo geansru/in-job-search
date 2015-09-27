@@ -13,21 +13,21 @@ class Seed
     static func importJSONSeedData() -> [SearchCategory] {
         var result = [SearchCategory]()
         let jsonURL = NSBundle.mainBundle().URLForResource("seed", withExtension: "json")
-        let jsonData = NSData(contentsOfURL: jsonURL!)
+        if let jsonData = NSData(contentsOfURL: jsonURL!) {
         
-        var error: NSError? = nil
-        let jsonArray = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: &error) as! NSArray
-        
-        for jsonDictionary in jsonArray {
+            var error: NSError? = nil
+            let jsonArray = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as! NSArray
             
-            let categoryName = jsonDictionary["name"] as! String
-            let subs = jsonDictionary["subs"] as! [String]
-            
-            let team = SearchCategory(title: categoryName, subcategory: subs)
-            
+            for jsonDictionary in jsonArray {
+                
+                let categoryName = jsonDictionary["name"] as! String
+                let subs = jsonDictionary["subs"] as! [String]
+                
+                let category = SearchCategory(title: categoryName, subcategory: subs)
+                result.append(category)
+            }
         }
-        
-        println("Imported \(jsonArray.count) teams")
+        println("Imported \(result.count) teams")
         return result
     }
 

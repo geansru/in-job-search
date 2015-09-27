@@ -12,6 +12,7 @@
 		D526B6DA1BB800E2005E5B2E /* Seed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D526B6D91BB800E2005E5B2E /* Seed.swift */; };
 		D526B6DC1BB80482005E5B2E /* SearchSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D526B6DB1BB80482005E5B2E /* SearchSubCategory.swift */; };
 		D55435B01BB6C5D4009ADC12 /* categories.xml in Resources */ = {isa = PBXBuildFile; fileRef = D55435AF1BB6C5D4009ADC12 /* categories.xml */; };
+		D5988BD51BB8192300A33336 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5988BD41BB8192300A33336 /* BookmarksViewController.swift */; };
 		D5B143161BB68E1E00374679 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B143151BB68E1E00374679 /* AppDelegate.swift */; };
 		D5B143181BB68E1E00374679 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B143171BB68E1E00374679 /* MasterViewController.swift */; };
 		D5B1431A1BB68E1E00374679 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B143191BB68E1E00374679 /* DetailViewController.swift */; };
@@ -45,6 +46,7 @@
 		D526B6D91BB800E2005E5B2E /* Seed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Seed.swift; sourceTree = "<group>"; };
 		D526B6DB1BB80482005E5B2E /* SearchSubCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSubCategory.swift; sourceTree = "<group>"; };
 		D55435AF1BB6C5D4009ADC12 /* categories.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = categories.xml; sourceTree = "<group>"; };
+		D5988BD41BB8192300A33336 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		D5B143101BB68E1E00374679 /* InJobSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InJobSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B143141BB68E1E00374679 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5B143151BB68E1E00374679 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				D5B143151BB68E1E00374679 /* AppDelegate.swift */,
 				D5B143171BB68E1E00374679 /* MasterViewController.swift */,
+				D5988BD41BB8192300A33336 /* BookmarksViewController.swift */,
 				D5B143191BB68E1E00374679 /* DetailViewController.swift */,
 				D5CD83C11BB693DB0021C0E1 /* Helpers */,
 				D5B1431B1BB68E2000374679 /* Main.storyboard */,
@@ -272,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5988BD51BB8192300A33336 /* BookmarksViewController.swift in Sources */,
 				D526B6DC1BB80482005E5B2E /* SearchSubCategory.swift in Sources */,
 				D5B1431A1BB68E1E00374679 /* DetailViewController.swift in Sources */,
 				D5CD83C91BB6B4C40021C0E1 /* JobUpWork.swift in Sources */,
