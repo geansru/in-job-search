@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<category name="Web%2C+Mobile+%26+Software+Dev">
+		<subcategory>All Subcategories</subcategory>
+		<subcategory>Web Development</subcategory>
+		<subcategory>Mobile Development</subcategory>
+		<subcategory>Web & Mobile Design</subcategory>
+		<subcategory>Other - Software Development</subcategory>
+		<subcategory>Ecommerce Development</subcategory>
+		<subcategory>Desktop Software Development</subcategory>
+		<subcategory>Scripts & Utilities</subcategory>
+		<subcategory>Game Development</subcategory>
+		<subcategory>QA & Testing</subcategory>
+		<subcategory>Product Management</subcategory>
+	</category>
+	<category name="Design+%26+Creative">
+		<subcategory>Graphic Design</subcategory>
+		<subcategory>Logo Design & Branding</subcategory>
+		<subcategory>Other - Design & Creative</subcategory>
+		<subcategory>Video Production</subcategory>
+		<subcategory>Illustration</subcategory>
+		<subcategory>Animation</subcategory>
+		<subcategory>Photography</subcategory>
+		<subcategory>Presentations</subcategory>
+		<subcategory>Voice Talent</subcategory>
+		<subcategory>Audio Production</subcategory>
+	</category>
+	<category name="Writing">
+		<subcategory>Article & Blog Writing</subcategory>
+		<subcategory>Other - Writing</subcategory>
+		<subcategory>Creative Writing</subcategory>
+		<subcategory>Web Content</subcategory>
+		<subcategory>Copywriting</subcategory>
+		<subcategory>Academic Writing & Research</subcategory>
+		<subcategory>Editing & Proofreading</subcategory>
+		<subcategory>Technical Writing</subcategory>
+		<subcategory>Resumes & Cover Letters</subcategory>
+		<subcategory>Grant Writing</subcategory>
+	</category>
+</root>

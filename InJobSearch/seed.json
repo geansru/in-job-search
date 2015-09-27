@@ -1,0 +1,52 @@
+ [
+  {
+  "name": "Web%2C+Mobile+%26+Software+Dev",
+  "subs":
+    [
+       "All Subcategories",
+       "Web Development", 
+       "Mobile Development", 
+       "Web & Mobile Design", 
+       "Other - Software Development", 
+       "Ecommerce Development", 
+       "Desktop Software Development", 
+       "Scripts & Utilities", 
+       "Game Development", 
+       "QA & Testing", 
+       "Product Management",
+   ],
+  },
+  {
+  "name": "Design+%26+Creative",
+  "subs":
+    [
+     "Graphic Design", 
+     "Logo Design & Branding", 
+     "Other - Design & Creative", 
+     "Video Production", 
+     "Illustration", 
+     "Animation", 
+     "Photography", 
+     "Presentations", 
+     "Voice Talent", 
+     "Audio Production", 
+    ],
+  },
+  {
+  "name"="Writing",
+  "subs":
+    [
+     "Article & Blog Writing", 
+     "Other - Writing", 
+     "Creative Writing", 
+     "Web Content", 
+     "Copywriting", 
+     "Academic Writing & Research", 
+     "Editing & Proofreading", 
+     "Technical Writing", 
+     "Resumes & Cover Letters", 
+     "Grant Writing", 
+    ],
+  },
+
+]
